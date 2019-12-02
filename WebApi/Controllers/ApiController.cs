@@ -19,6 +19,9 @@ namespace WebApi.Controllers
         }
 
         [HttpGet("enrolment")]
+        [ProducesResponseType(typeof(EnrolmentResult), 200)]
+        [ProducesResponseType(404)]
+        [ProducesResponseType(400)]
         public IActionResult Enrolment([FromQuery] EnrolmentRequest enrolmentRequest)
         {
             if (ModelState.IsValid)
@@ -27,11 +30,8 @@ namespace WebApi.Controllers
                 {
                     var result = new EnrolmentResult
                     {
-                        EnrolledAddress = "EASTERN VALLEY WAY, WILLOUGHBY EAST NSW 2068",
-                        LocalGovernmentArea = "Willoughby City Council",
-                        LocalGovernmentAreaWard = "Middle Harbour Ward",
-                        StateElectoralDistrict = "Willoughby",
-                        ValidAsAt = new DateTime(2018, 6, 6)
+                        StreetName = "EASTERN VALLEY WAY, WILLOUGHBY EAST NSW 2068",
+                        ValidAsAt = DateTime.Now
                     };
 
                     return Ok(result);

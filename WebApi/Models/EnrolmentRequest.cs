@@ -15,13 +15,5 @@ namespace WebApi.Models
         [MaxLength(50)]
         [WhitelistCharacter]
         public string GivenNames { get; set; }
-
-        [Required]
-        public DateTime DateOfBirth { get; set; }
-
-        [Required]
-        [MaxLength(100)]
-        [WhitelistCharacter]
-        public string StreetName { get; set; }
     }
 }
